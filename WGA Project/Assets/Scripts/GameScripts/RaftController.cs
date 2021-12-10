@@ -18,14 +18,15 @@ public class RaftController : MonoBehaviour
         if (!GameSettings.gameOnPause)
         {
             UpdatePlayerState();
-            MovePlot();
+            MoveRaft();
         }
     }
 
-    private void MovePlot()
+    private void MoveRaft()
     {
-        raftDirection = GameSettings.playerState == GameSettings.playerStates.raftControl ? (windDirection + riverDirection + userInput) * Time.deltaTime : (windDirection + riverDirection) * Time.deltaTime;
-        this.gameObject.transform.Translate(new Vector3(raftDirection.x, 0f, raftDirection.y));
+        raftDirection = GameSettings.playerState == GameSettings.playerStates.raftControl ? (windDirection + riverDirection + userInput) : (windDirection + riverDirection);
+        this.gameObject.transform.Translate(new Vector3(raftDirection.x, 0f, raftDirection.y) * Time.deltaTime, Space.World);
+        this.transform.Rotate(new Vector3(0, raftDirection.x));
     }
 
     private void  UpdatePlayerState()
