@@ -26,14 +26,14 @@ public class RaftController : MonoBehaviour
     {
         raftDirection = GameSettings.playerState == GameSettings.playerStates.raftControl ? (windDirection + riverDirection + userInput) : (windDirection + riverDirection);
         this.gameObject.transform.Translate(new Vector3(raftDirection.x, 0f, raftDirection.y) * Time.deltaTime, Space.World);
-        this.transform.Rotate(new Vector3(0, raftDirection.x));
+        this.transform.Rotate(Vector3.up, raftDirection.x * Time.deltaTime * 10);
     }
 
     private void  UpdatePlayerState()
     {
         if (Input.GetKeyDown(attackKey))
         {
-            playerState = GameSettings.playerStates.Attack;
+            playerState = GameSettings.playerStates.attack;
             GameSettings.playerState = playerState;
         }
         else

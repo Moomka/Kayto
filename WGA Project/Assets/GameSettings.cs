@@ -7,7 +7,7 @@ public static class GameSettings
     public enum playerStates
     {
         raftControl,
-        Attack
+        attack
     }
 
     public static playerStates playerState = playerStates.raftControl;
