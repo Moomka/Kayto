@@ -51,12 +51,20 @@ public class RaftController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Obstacle")
+        switch (collision.gameObject.tag)
         {
-            Vector3 hitPoint = collision.collider.ClosestPoint(gameObject.transform.position);
-            Vector3 backPush = transform.position - hitPoint;
-            backPush.y = 0;
-            gameObject.transform.Translate(backPush, Space.World);
+            case "Obstacle":
+                {
+                    Vector3 hitPoint = collision.collider.ClosestPoint(gameObject.transform.position);
+                    Vector3 backPush = transform.position - hitPoint;
+                    backPush.y = 0;
+                    gameObject.transform.Translate(backPush, Space.World);
+                    break;
+                }
+            case null:
+                {
+                    break;
+                }
         }
     }
 }

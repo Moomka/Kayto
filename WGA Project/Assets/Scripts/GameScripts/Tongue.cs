@@ -6,6 +6,7 @@ public class Tongue : MonoBehaviour
 {
     [SerializeField] float _maxAttackDistance;
     [SerializeField] float tongueSpeed;
+    [SerializeField] float tongueDamage;
     float attackDistance;
 
     private void Update()
@@ -30,10 +31,28 @@ public class Tongue : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        switch (collision.gameObject.tag)
         {
-            GameSettings.playerState = GameSettings.playerStates.raftControl;
-            gameObject.transform.position = gameObject.transform.parent.transform.position;
+            case "Player":
+                {
+                    GameSettings.playerState = GameSettings.playerStates.raftControl;
+                    gameObject.transform.position = gameObject.transform.parent.transform.position;
+                    break;
+                }
+            case "Enemy":
+                {
+                    collision.gameObject.GetComponent<Enemy>().GetDamage(tongueDamage);
+                    break;
+                }
+            case "PickUp":
+                {
+                    collision.gameObject.GetComponent<PickUp>().GetHit();
+                    break;
+                }
+            case null:
+                {
+                    break;
+                }
         }
     }
 }

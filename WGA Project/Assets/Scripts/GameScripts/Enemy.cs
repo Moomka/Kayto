@@ -2,13 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUp : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
     [SerializeField] private float HP = 100;
 
-    public void GetHit()
+    public void GetDamage(float damage)
     {
-        GameSettings.playerScore++;
+        HP -= damage;
+        if (HP <= 0) Death();
+    }
+
+    private void Death()
+    {
         Destroy(this.gameObject);
     }
 }
