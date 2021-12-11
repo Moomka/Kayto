@@ -5,7 +5,7 @@ using UnityEngine;
 public class RaftController : MonoBehaviour
 {
     [SerializeField] KeyCode attackKey;
-    [SerializeField] Vector2 riverDirection = new Vector2(0, 1);
+    [SerializeField] Vector2 riverDirection = new Vector2(0, 1.2f);
     public Vector2 raftDirection;
     private Vector2 userInput;
     private Vector2 windDirection;
@@ -21,7 +21,8 @@ public class RaftController : MonoBehaviour
     {
         xAxis = Input.GetAxis("Horizontal");
         yAxis = Input.GetAxis("Vertical");
-        userInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (yAxis < 0) yAxis = 0;
+        userInput = new Vector2(xAxis, yAxis);
         if (!GameSettings.gameOnPause)
         {
             UpdatePlayerState();
@@ -33,9 +34,7 @@ public class RaftController : MonoBehaviour
     {
         raftDirection = GameSettings.playerState == GameSettings.playerStates.raftControl ? (windDirection + riverDirection + userInput) : (windDirection + riverDirection);
         this.gameObject.transform.Translate(new Vector3(raftDirection.x, 0f, raftDirection.y) * Time.deltaTime, Space.World);
-        //this.transform.Rotate(Vector3.up, raftDirection.x * Time.deltaTime * 10);
-
-        transform.rotation = Quaternion.Euler(yAxis*_tiltRaftX, xAxis*_tiltRaftZ, 0);
+        transform.rotation = Quaternion.Euler(-yAxis*_tiltRaftX, xAxis*_tiltRaftZ, 0);
     }
 
     private void  UpdatePlayerState()

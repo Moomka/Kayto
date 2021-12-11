@@ -10,6 +10,7 @@ public static class GameSettings
         attack
     }
 
+    public static Vector3 mousePosition;
     public static playerStates playerState = playerStates.raftControl;
     public static bool gameOnPause = false;
     public static bool playerControlRaft = false;
