@@ -7,7 +7,8 @@ public static class GameSettings
     public enum playerStates
     {
         raftControl,
-        attack
+        attack,
+        charging
     }
 
     public static Vector3 mousePosition;
