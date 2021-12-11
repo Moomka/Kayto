@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaftController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public Vector2 raftDirection;
 
@@ -16,9 +16,18 @@ public class RaftController : MonoBehaviour
     private Vector2 _userInput;
     private Vector2 _windDirection;
     private GameSettings.playerStates _playerState;
-    private float _xAxis; 
+    private float _xAxis;
     private float _yAxis;
 
+
+    public void GetDamage(float damage)
+    {
+        GameSettings.playerHP -= damage;
+        if (GameSettings.playerHP <= 0)
+        {
+            GameOver();
+        }
+    }
     private void Update()
     {
         _xAxis = Input.GetAxis("Horizontal");
@@ -66,5 +75,10 @@ public class RaftController : MonoBehaviour
                     break;
                 }
         }
+    }
+
+    void GameOver()
+    {
+
     }
 }
