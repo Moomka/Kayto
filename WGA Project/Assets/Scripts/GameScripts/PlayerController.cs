@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController S;
     public Vector2 raftDirection;
 
     [SerializeField] Vector2 _riverDirection = new Vector2(0, 1.2f);
@@ -23,6 +24,13 @@ public class PlayerController : MonoBehaviour
     private float _yAxis;
     GameObject objectView;
 
+    void Awake()
+    {
+        if (S == null)
+            S = this;
+        else 
+            Debug.LogError("РћС€РёР±РєР° Hero.cs!");
+    }
 
     public void GetDamage(float damage)
     {
@@ -99,7 +107,7 @@ public class PlayerController : MonoBehaviour
         GameObject prefab = (GameObject)Resources.Load(_resourcePath);
         objectView = Object.Instantiate(prefab, placeForUi, false);
         GameSettings.gameOnPause = true;
-        Debug.Log("загрузили");
+        Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         return objectView.GetComponent<GameOverView>();
     }
 
@@ -109,7 +117,7 @@ public class PlayerController : MonoBehaviour
     private void RestartGame()
     {
         GameSettings.gameOnPause = false;
-        Debug.Log("Вернулись");
+        Debug.Log("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Destroy(objectView);
     }

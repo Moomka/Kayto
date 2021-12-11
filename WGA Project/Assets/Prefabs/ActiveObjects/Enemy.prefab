@@ -125,4 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940bdfc4a9235a14699ced4d95037ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  radiusView: 5
+  distanseStartMove: 25
   HP: 100
+  speed: 5

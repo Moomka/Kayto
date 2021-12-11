@@ -10,13 +10,19 @@
         <e p="Scripts" t="Include">
           <e p="GameScripts" t="Include">
             <e p="CameraController.cs" t="Include" />
+            <e p="Enemy.cs" t="Include" />
             <e p="FlagWind.cs" t="Include" />
-            <e p="RaftController.cs" t="Include" />
+            <e p="Mosquito.cs" t="Include" />
+            <e p="PickUp.cs" t="Include" />
+            <e p="PlayerController.cs" t="Include" />
+            <e p="Tongue.cs" t="Include" />
           </e>
           <e p="UI" t="Include">
+            <e p="GameOverView.cs" t="Include" />
             <e p="MainMenuController.cs" t="Include" />
             <e p="PauseMenuController.cs" t="Include" />
             <e p="PauseMenuView.cs" t="Include" />
+            <e p="ShopController.cs" t="Include" />
           </e>
         </e>
       </e>

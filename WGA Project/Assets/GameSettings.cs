@@ -18,6 +18,6 @@ public static class GameSettings
     public static int healtRaft=0;
     public static int healthFrog=0;
     public static int playerScore;
-    public static float playerHP;
+    public static float playerHP=50f;
     public static int pollen;
 }

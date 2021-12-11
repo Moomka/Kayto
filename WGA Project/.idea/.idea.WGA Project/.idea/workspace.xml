@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58f701a5-54d5-4f0e-ae4e-6fccc1638b17" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ActiveObjects/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ActiveObjects/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/RaftController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/RaftController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/URPProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,10 +19,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/FlagWind.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/GameSettings.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/Tongue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../UnityEducation/Birds/Space SHMUP Prototype/Space SHMUP Prototype/Assets/Scripts/Hero.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Unity DIPLOM/AR4.0/Assets/Scripts/BaseRobotMovement.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../UnityEducation/Birds/Space SHMUP Prototype/Space SHMUP Prototype/Assets/Scripts/Main.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/RaftController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/FlagWind.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Unity DIPLOM/AR4.0/Assets/Scripts/FlyingBot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/Mosquito.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -27,6 +38,10 @@
         <option value="$PROJECT_DIR$/Assets/FlagRaft.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/RaftController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/FlagWind.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/GameSettings.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/Enemy.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/Mosquito.cs" />
       </list>
     </option>
   </component>
