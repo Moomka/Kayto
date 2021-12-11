@@ -62,4 +62,15 @@ public class RaftController : MonoBehaviour
             GameSettings.playerState = _playerState;
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            Vector3 hitPoint = collision.collider.ClosestPoint(gameObject.transform.position);
+            Vector3 backPush = transform.position - hitPoint;
+            backPush.y = 0;
+            gameObject.transform.Translate(backPush, Space.World);
+        }
+    }
 }

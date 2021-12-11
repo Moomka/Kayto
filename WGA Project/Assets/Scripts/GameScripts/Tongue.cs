@@ -5,8 +5,15 @@ using UnityEngine;
 public class Tongue : MonoBehaviour
 {
     [SerializeField] private float _targetingSpeed;
+    [SerializeField] private float _attackCooldown;
+    private float timeFromPastAttack;
     private float _power = 0;
+    private Animation attackAnim;
 
+    private void Awake()
+    {
+        attackAnim = gameObject.GetComponent<Animation>();
+    }
     private void Update()
     {
         if (GameSettings.playerState == GameSettings.playerStates.attack && Input.GetMouseButton(0))
@@ -17,17 +24,22 @@ public class Tongue : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && _power > 0)
         {
             _power = 0;
-            Shoot();
+            if (timeFromPastAttack > _attackCooldown)
+            {
+                Shoot();
+            }
         }
+        timeFromPastAttack += Time.deltaTime;
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawLine(this.gameObject.transform.position, Vector3.Lerp(this.gameObject.transform.position, GameSettings.mousePosition, _power));
+        Gizmos.DrawLine(this.gameObject.transform.position, Vector3.Lerp(gameObject.transform.parent.transform.position, GameSettings.mousePosition, _power));
     }
 
     void Shoot()
     {
-
+        timeFromPastAttack = 0;
+        attackAnim.Play("TongueShot");
     }
 }
