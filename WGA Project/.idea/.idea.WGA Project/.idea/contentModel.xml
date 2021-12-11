@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Дмитрий\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Дмитрий\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_WGA Project.-2107085285.00" t="ExcludeRecursive" />
+    <e p="E:\WGA Kayto\Project\WGA Project" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="GameSettings.cs" t="Include" />
+        <e p="Scripts" t="Include">
+          <e p="GameScripts" t="Include">
+            <e p="CameraController.cs" t="Include" />
+            <e p="FlagWind.cs" t="Include" />
+            <e p="RaftController.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="MainMenuController.cs" t="Include" />
+            <e p="PauseMenuController.cs" t="Include" />
+            <e p="PauseMenuView.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+      <e p="WGA Project.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>

@@ -11,9 +11,16 @@ public class RaftController : MonoBehaviour
     private Vector2 windDirection;
     private GameSettings.playerStates playerState;
 
+    private float xAxis; 
+    private float yAxis; 
+    [SerializeField] private float _tiltRaftZ = 10;
+    [SerializeField] private float _tiltRaftX = 10;
+
 
     private void Update()
     {
+        xAxis = Input.GetAxis("Horizontal");
+        yAxis = Input.GetAxis("Vertical");
         userInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         if (!GameSettings.gameOnPause)
         {
@@ -26,7 +33,9 @@ public class RaftController : MonoBehaviour
     {
         raftDirection = GameSettings.playerState == GameSettings.playerStates.raftControl ? (windDirection + riverDirection + userInput) : (windDirection + riverDirection);
         this.gameObject.transform.Translate(new Vector3(raftDirection.x, 0f, raftDirection.y) * Time.deltaTime, Space.World);
-        this.transform.Rotate(Vector3.up, raftDirection.x * Time.deltaTime * 10);
+        //this.transform.Rotate(Vector3.up, raftDirection.x * Time.deltaTime * 10);
+
+        transform.rotation = Quaternion.Euler(yAxis*_tiltRaftX, xAxis*_tiltRaftZ, 0);
     }
 
     private void  UpdatePlayerState()
