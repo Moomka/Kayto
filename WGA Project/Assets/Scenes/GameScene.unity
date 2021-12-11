@@ -679,7 +679,7 @@ MonoBehaviour:
   _raftRotationSpeed: 5
   _raftRotateBorder: 30
   _raftTilt: 10
-  raft: {fileID: 0}
+  raft: {fileID: 1963035294}
 --- !u!135 &751782776
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1013,7 +1013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60c1cff4c95a70e4299a370b2f03ccc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anchorTransform: {fileID: 0}
+  anchorTransform: {fileID: 1963035293}
   camFollowSpeed: 0.8
   cameraOffset: {x: 3, y: 3, z: 0}
 --- !u!1 &984059598
