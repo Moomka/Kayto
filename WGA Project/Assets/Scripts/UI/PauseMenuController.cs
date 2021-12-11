@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Ui 
 {
@@ -11,13 +12,17 @@ namespace Ui
         private PauseMenuView _view;
         public Transform placeForUi;
         private GameObject objectView;
+        [SerializeField] private Button _buttonHealFrog;
+        [SerializeField] private Button _buttonHealRaft;
 
         void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape)&& GameSettings.gameOnPause == false)
             {
                 _view = LoadView(placeForUi);
-                _view.Init(QuitGame, BackTogame);
+                _view.Init(QuitGame, BackTogame, BackToMenu);
+                _buttonHealFrog.gameObject.SetActive(false);
+                _buttonHealRaft.gameObject.SetActive(false);
             }
 
         }
@@ -39,6 +44,12 @@ namespace Ui
             GameSettings.gameOnPause = false;
             Debug.Log("Вернулись");
             Destroy(objectView);
+            _buttonHealFrog.gameObject.SetActive(true);
+            _buttonHealRaft.gameObject.SetActive(true);
+        }
+        private void BackToMenu()
+        {
+            SceneManager.LoadScene("MainMenu");
         }
 
     }

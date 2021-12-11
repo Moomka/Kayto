@@ -10,12 +10,14 @@ namespace Ui
     {
         [SerializeField] private Button _buttonBackToGame;
         [SerializeField] private Button _buttonExit;
+        [SerializeField] private Button _buttonBackToMenu;
 
 
-        public void Init(UnityAction quitGame, UnityAction backToGame)
+        public void Init(UnityAction quitGame, UnityAction backToGame, UnityAction backToMain)
         {
             _buttonExit.onClick.AddListener(quitGame);
             _buttonBackToGame.onClick.AddListener(backToGame);
+            _buttonBackToMenu.onClick.AddListener(backToMain);
         }
 
         public void OnDestroy()
