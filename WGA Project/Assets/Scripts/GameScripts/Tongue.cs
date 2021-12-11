@@ -4,42 +4,36 @@ using UnityEngine;
 
 public class Tongue : MonoBehaviour
 {
-    [SerializeField] private float _targetingSpeed;
-    [SerializeField] private float _attackCooldown;
-    private float timeFromPastAttack;
-    private float _power = 0;
-    private Animation attackAnim;
+    [SerializeField] float _maxAttackDistance;
+    [SerializeField] float tongueSpeed;
+    float attackDistance;
 
-    private void Awake()
-    {
-        attackAnim = gameObject.GetComponent<Animation>();
-    }
     private void Update()
     {
-        if (GameSettings.playerState == GameSettings.playerStates.attack && Input.GetMouseButton(0))
+        if (Input.GetMouseButtonDown(0) && GameSettings.playerState != GameSettings.playerStates.attack)
         {
-            _power += _targetingSpeed * Time.deltaTime;
-            _power = Mathf.Clamp(_power, 0, 1);
+            gameObject.transform.LookAt(GameSettings.mousePosition);
+            GameSettings.playerState = GameSettings.playerStates.attack;
+            attackDistance = Vector3.Distance(gameObject.transform.position, GameSettings.mousePosition);
         }
-        if (Input.GetMouseButtonUp(0) && _power > 0)
+
+        if (GameSettings.playerState == GameSettings.playerStates.attack)
         {
-            _power = 0;
-            if (timeFromPastAttack > _attackCooldown)
+            gameObject.transform.Translate(Vector3.forward * Time.deltaTime * tongueSpeed);
+            float distance = Vector3.Distance(gameObject.transform.parent.transform.position, gameObject.transform.position);
+            if (distance > attackDistance || distance > _maxAttackDistance)
             {
-                Shoot();
+                gameObject.transform.LookAt(gameObject.transform.parent.transform.position);
             }
         }
-        timeFromPastAttack += Time.deltaTime;
     }
 
-    private void OnDrawGizmos()
+    private void OnCollisionEnter(Collision collision)
     {
-        Gizmos.DrawLine(this.gameObject.transform.position, Vector3.Lerp(gameObject.transform.parent.transform.position, GameSettings.mousePosition, _power));
-    }
-
-    void Shoot()
-    {
-        timeFromPastAttack = 0;
-        attackAnim.Play("TongueShot");
+        if (collision.gameObject.tag == "Player")
+        {
+            GameSettings.playerState = GameSettings.playerStates.raftControl;
+            gameObject.transform.position = gameObject.transform.parent.transform.position;
+        }
     }
 }
