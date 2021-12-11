@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2289773831001055328}
   - component: {fileID: 465949347043327805}
   m_Layer: 5
-  m_Name: ButtonBackToGame
+  m_Name: ButtonRestart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5eb97dd2615e004cbe86b72b01ff811, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 968399f0aecd401489a3210f4bd13146, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -350,9 +350,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154947221795282571}
-  - component: {fileID: 1388371535749528313}
+  - component: {fileID: 6338870957755333118}
   m_Layer: 0
-  m_Name: PauseMenu12
+  m_Name: GameOverMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +373,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1388371535749528313
+--- !u!114 &6338870957755333118
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,8 +382,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8903236953789012267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25aca0830331a5a41bbd7cde94d0c504, type: 3}
+  m_Script: {fileID: 11500000, guid: f6ddc0dd45b9d9a42ba0977b68ffc62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonBackToGame: {fileID: 465949347043327805}
+  _buttonRestart: {fileID: 465949347043327805}
   _buttonExit: {fileID: 5338057979737718089}

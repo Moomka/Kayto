@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ui;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _raftRotateBorder;
     [SerializeField] private float _raftTilt;
     [SerializeField] GameObject raft;
+    [SerializeField] private Transform placeForUi;
 
     private Quaternion _raftRotation;
     private Vector2 _userInput;
@@ -18,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private GameSettings.playerStates _playerState;
     private float _xAxis;
     private float _yAxis;
+    GameObject objectView;
 
 
     public void GetDamage(float damage)
@@ -30,6 +34,11 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space) && GameSettings.gameOnPause == false)
+        {
+            GameOver();
+        }
+
         _xAxis = Input.GetAxis("Horizontal");
         _yAxis = Input.GetAxis("Vertical");
         if (_yAxis < 0) _yAxis = 0;
@@ -79,6 +88,29 @@ public class PlayerController : MonoBehaviour
 
     void GameOver()
     {
+    GameOverView _view;
+    _view = LoadView(placeForUi);
+    _view.Init(QuitGame, RestartGame);
+    }
 
+    private GameOverView LoadView(Transform placeForUi)
+    {
+        string _resourcePath = "Prefabs/GameOverMenu";
+        GameObject prefab = (GameObject)Resources.Load(_resourcePath);
+        objectView = Object.Instantiate(prefab, placeForUi, false);
+        GameSettings.gameOnPause = true;
+        Debug.Log("загрузили");
+        return objectView.GetComponent<GameOverView>();
+    }
+
+    private void QuitGame() =>
+        Application.Quit();
+
+    private void RestartGame()
+    {
+        GameSettings.gameOnPause = false;
+        Debug.Log("Вернулись");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Destroy(objectView);
     }
 }
