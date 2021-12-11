@@ -4,18 +4,29 @@ using UnityEngine;
 
 public class RaftController : MonoBehaviour
 {
+    public Vector2 raftDirection;
     [SerializeField] KeyCode attackKey;
     [SerializeField] Vector2 riverDirection = new Vector2(0, 1);
-    public Vector2 raftDirection;
+    [SerializeField] GameObject tongue;
+    private Animation attackAnimation;
     private Vector2 userInput;
     private Vector2 windDirection;
     private GameSettings.playerStates playerState;
     private bool canSwim = true;
 
+    private void Awake()
+    {
+        attackAnimation = tongue.GetComponent<Animation>();
+    }
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0))
+        {
+            attackAnimation.Play();
+        }
         userInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        if (userInput.y < 0) userInput.y = 0;
         if (!GameSettings.gameOnPause)
         {
             UpdatePlayerState();
