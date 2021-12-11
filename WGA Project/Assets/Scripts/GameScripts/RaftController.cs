@@ -6,27 +6,25 @@ public class RaftController : MonoBehaviour
 {
     public Vector2 raftDirection;
 
-    [SerializeField] Vector2 riverDirection = new Vector2(0, 1.2f);
-    [SerializeField] private float _tiltRaftZ = 10f;
-    [SerializeField] private float _tiltRaftX = 10f;
-    [SerializeField] private float _raftIncline = 2f;
+    [SerializeField] Vector2 _riverDirection = new Vector2(0, 1.2f);
     [SerializeField] private float _raftRotationSpeed;
     [SerializeField] private float _raftRotateBorder;
+    [SerializeField] private float _raftTilt;
 
-    private Quaternion raftRotation;
-    private Vector2 userInput;
-    private Vector2 windDirection;
-    private GameSettings.playerStates playerState;
-    private float xAxis; 
-    private float yAxis; 
+    private Quaternion _raftRotation;
+    private Vector2 _userInput;
+    private Vector2 _windDirection;
+    private GameSettings.playerStates _playerState;
+    private float _xAxis; 
+    private float _yAxis;
 
     private void Update()
     {
-        xAxis = Input.GetAxis("Horizontal");
-        yAxis = Input.GetAxis("Vertical");
-        if (yAxis < 0) yAxis = 0;
-        userInput = new Vector2(xAxis, yAxis);
-        raftRotation = Quaternion.Euler(0f, Mathf.Clamp(xAxis * _raftRotationSpeed, -_raftRotateBorder, _raftRotateBorder), 0f);
+        _xAxis = Input.GetAxis("Horizontal");
+        _yAxis = Input.GetAxis("Vertical");
+        if (_yAxis < 0) _yAxis = 0;
+        _userInput = new Vector2(_xAxis, _yAxis);
+        _raftRotation = Quaternion.Euler(-_yAxis * 2f, _xAxis * _raftRotateBorder, _xAxis * _raftTilt);
         if (!GameSettings.gameOnPause)
         {
             UpdatePlayerState();
@@ -35,22 +33,18 @@ public class RaftController : MonoBehaviour
     }
 
     private void MoveRaft() 
-    { 
+    {
         if (GameSettings.playerState == GameSettings.playerStates.raftControl)
         {
-            raftDirection = (windDirection + riverDirection + userInput) * Time.deltaTime;
-            if (xAxis != 0)
+            raftDirection = (_windDirection + _riverDirection + _userInput) * Time.deltaTime;
+            if (_userInput != Vector2.zero)
             {
-                transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, raftRotation, _raftRotationSpeed * Time.deltaTime);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, Quaternion.Euler(0f, 0f, 0f), _raftRotationSpeed * Time.deltaTime);
-            }
-        }
-        else 
+                transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, _raftRotation, _raftRotationSpeed * Time.deltaTime);
+            } }
+        else
         {
-            raftDirection = (windDirection + riverDirection) * Time.deltaTime;
+            transform.rotation = Quaternion.Lerp(gameObject.transform.rotation, Quaternion.Euler(0f, 0f, 0f), _raftRotationSpeed * Time.deltaTime);
+            raftDirection = (_windDirection + _riverDirection) * Time.deltaTime;
         }
         this.gameObject.transform.Translate(new Vector3(raftDirection.x, 0f, raftDirection.y), Space.World);
     }
@@ -59,13 +53,13 @@ public class RaftController : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            playerState = GameSettings.playerStates.attack;
-            GameSettings.playerState = playerState;
+            _playerState = GameSettings.playerStates.attack;
+            GameSettings.playerState = _playerState;
         }
         else
         {
-            playerState = GameSettings.playerStates.raftControl;
-            GameSettings.playerState = playerState;
+            _playerState = GameSettings.playerStates.raftControl;
+            GameSettings.playerState = _playerState;
         }
     }
 }
