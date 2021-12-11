@@ -13,7 +13,12 @@ public class CameraController : MonoBehaviour
         if (!GameSettings.gameOnPause)
         {
             this.transform.position = Vector3.Lerp(this.transform.position, anchorTransform.position + cameraOffset, camFollowSpeed * Time.deltaTime);
-            GameSettings.mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameSettings.mousePosition = hit.point;
+            }
         }
     }
 
