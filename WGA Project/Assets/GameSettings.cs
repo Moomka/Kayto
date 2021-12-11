@@ -13,4 +13,5 @@ public static class GameSettings
     public static playerStates playerState = playerStates.raftControl;
     public static bool gameOnPause = false;
     public static bool playerControlRaft = false;
+    public static int playerScore;
 }
