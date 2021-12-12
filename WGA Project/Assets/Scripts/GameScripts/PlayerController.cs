@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
         _xAxis = Input.GetAxis("Horizontal");
         _yAxis = Input.GetAxis("Vertical");
-        if (_yAxis < 0) _yAxis = 0;
+        if (_yAxis < 0) _yAxis = -0.5f;
         _userInput = new Vector2(_xAxis, _yAxis);
         _raftRotation = Quaternion.Euler(-_yAxis * 2f, _xAxis * _raftRotateBorder, _xAxis * _raftTilt);
         if (!GameSettings.gameOnPause)
