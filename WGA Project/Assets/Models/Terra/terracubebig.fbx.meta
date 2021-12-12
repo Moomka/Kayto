@@ -3,7 +3,17 @@ guid: 121f99ab99eb8484ca29ad5fbfd9e379
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: grasstera
+    second: {fileID: 2100000, guid: b7a6e01918a264d40a08bc02d52d388d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ground5
+    second: {fileID: 2100000, guid: 207f01f2020ce5b4fa0150c1570cf40b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
