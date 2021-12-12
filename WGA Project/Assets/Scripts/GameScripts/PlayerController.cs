@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _raftTilt;
     [SerializeField] GameObject raft;
     [SerializeField] private Transform placeForUi;
+    [SerializeField] float raftDamage;
 
     private Quaternion _raftRotation;
     private Vector2 _userInput;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
         if (S == null)
             S = this;
         else 
@@ -81,6 +83,10 @@ public class PlayerController : MonoBehaviour
         {
             case "Obstacle":
                 {
+                    if (collision.gameObject.GetComponent<Obstacle>() != null)
+                    {
+                        collision.gameObject.GetComponent<Obstacle>().Hit(raftDamage);
+                    }
                     Vector3 hitPoint = collision.collider.ClosestPoint(gameObject.transform.position);
                     Vector3 backPush = transform.position - hitPoint;
                     backPush.y = 0;
