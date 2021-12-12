@@ -5,17 +5,12 @@ using UnityEngine;
 public class Mosquito : MonoBehaviour
 {
     [SerializeField] private float speed = 5f;
-    public bool RandomOrNot = true;
     public Transform[] moveSpots;
-    private int _randomSpot;
     private float waitTime;
     public float startWaitTime;
     private int index;
-    void Start()
+    void Awake()
     {
-        if (RandomOrNot)
-            index = UnityEngine.Random.Range(0, moveSpots.Length - 1);
-        else
             index = 0;
         //_randomSpot = UnityEngine.Random.Range(0, moveSpots.Length - 1);
         waitTime = startWaitTime;
@@ -23,7 +18,10 @@ public class Mosquito : MonoBehaviour
     
     void Update()
     {
-        MovementLogic();
+        if (!gameObject.GetComponent<Enemy>().WaitOrAttack())
+        {
+            MovementLogic();
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -33,21 +31,11 @@ public class Mosquito : MonoBehaviour
             case "Player":
                 transform.SetParent(other.gameObject.transform);
                 GameSettings.playerHP -= gameObject.GetComponent<Enemy>().damage;
-                gameObject.GetComponent<Enemy>().GetDamage(1000);
+                Destroy(this.gameObject, 5f);
                 break;
             default:
                 break;
         }
-        /* if (other.gameObject.CompareTag("Player"))
-         {
-             rb.isKinematic = true;
-             transform.SetParent(other.gameObject.transform);
-             if (_damageDone == false)
-             {
-                 PlayerController.S.GetDamage(damage);
-                 _damageDone = true;
-             }
-         }*/
     }
     public virtual void MovementLogic()
     {
@@ -58,24 +46,9 @@ public class Mosquito : MonoBehaviour
 
             if (Vector3.Distance(transform.position, moveSpots[index].position) < 0.01f)
             {
-                if (waitTime <= 0)
-                {
-                    if (RandomOrNot) 
-                        index = UnityEngine.Random.Range(0, moveSpots.Length - 1);
-                    else
-                    {
-                        index++;
-                        if (index == moveSpots.Length) index = 0;
-                    }
-                    //_randomSpot = UnityEngine.Random.Range(0, moveSpots.Length - 1);
-                    waitTime = startWaitTime;
-                }
-                else
-                {
-                    waitTime -= Time.deltaTime;
-                }
+                 index++;
+                 if (index == moveSpots.Length) index = 0;
             }
         }
     }
-    
 }

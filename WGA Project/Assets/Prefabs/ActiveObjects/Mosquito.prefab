@@ -268,7 +268,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  RandomOrNot: 0
   moveSpots:
   - {fileID: 1534838475123939058}
   - {fileID: 1534838475068623723}
@@ -286,10 +285,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940bdfc4a9235a14699ced4d95037ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radiusView: 100
   distanseStartMove: 10
   HP: 20
-  speed: 2
+  speed: 5
   damage: 20
 --- !u!54 &533563735
 Rigidbody:
