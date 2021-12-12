@@ -12,15 +12,6 @@ namespace Ui
         public Transform placeForUi;
         private GameObject objectView;
 
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape)&& GameSettings.gameOnPause == false)
-            {
-                _view = LoadView(placeForUi);
-                _view.Init(QuitGame, BackTogame);
-            }
-
-        }
 
         private PauseMenuView LoadView(Transform placeForUi)
         {

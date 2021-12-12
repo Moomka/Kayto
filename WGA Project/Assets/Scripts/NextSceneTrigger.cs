@@ -6,13 +6,12 @@ public class NextSceneTrigger : MonoBehaviour
 {
     [SerializeField] GameStateController controller;
 
-    private void Awake()
+    private void Start()
     {
         controller = GameObject.FindGameObjectWithTag("SceneController").GetComponent<GameStateController>();
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "Player")
         {
             controller.NextScene();

@@ -98,30 +98,7 @@ public class PlayerController : MonoBehaviour
 
     void GameOver()
     {
-        if (_isGameOver)
-        {
-            GameOverView _view;
-            _view = LoadView(placeForUi);
-            _view.Init(QuitGame, RestartGame);
-            _isGameOver = false;
-        }
-    }
-
-    private GameOverView LoadView(Transform placeForUi)
-    {
-        string _resourcePath = "Prefabs/GameOverMenu";
-        GameObject prefab = (GameObject)Resources.Load(_resourcePath);
-        objectView = Object.Instantiate(prefab, placeForUi, false);
         GameSettings.gameOnPause = true;
-        return objectView.GetComponent<GameOverView>();
-    }
 
-    private void QuitGame() =>
-        Application.Quit();
-
-    private void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        Destroy(objectView);
     }
 }
