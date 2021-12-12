@@ -27,12 +27,12 @@ public class Tongue : MonoBehaviour
     {
         frogPosition = frogMouth.position;
         maxPowerPoint = frogPosition + (Vector3.Normalize(GameSettings.mousePosition - frogPosition) * maxPower);
-        if (Input.GetMouseButtonDown(0) && GameSettings.playerState == GameSettings.playerStates.raftControl)
+        if (Input.GetMouseButtonDown(0) && GameSettings.playerState == GameSettings.playerStates.raftControl && !GameSettings.gameOnPause)
         {
             currentPower = 0;
             GameSettings.playerState = GameSettings.playerStates.charging;
         }
-        if (Input.GetMouseButtonUp(0) && GameSettings.playerState == GameSettings.playerStates.charging)
+        if (Input.GetMouseButtonUp(0) && GameSettings.playerState == GameSettings.playerStates.charging && !GameSettings.gameOnPause)
         {
             GameSettings.playerState = GameSettings.playerStates.attack;
         }
