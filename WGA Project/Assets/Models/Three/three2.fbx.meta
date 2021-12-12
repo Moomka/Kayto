@@ -3,7 +3,42 @@ guid: 8cadba4b31cfa7846846b957ca53b488
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 133c0ef24d6e14940bfe54e198ac8a16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rond4
+    second: {fileID: 2100000, guid: 249c356f0c78cd7468276f0c220bd77f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: round1
+    second: {fileID: 2100000, guid: 133c0ef24d6e14940bfe54e198ac8a16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: round2
+    second: {fileID: 2100000, guid: 133c0ef24d6e14940bfe54e198ac8a16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: round3
+    second: {fileID: 2100000, guid: 133c0ef24d6e14940bfe54e198ac8a16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: round5
+    second: {fileID: 2100000, guid: 133c0ef24d6e14940bfe54e198ac8a16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood2
+    second: {fileID: 2100000, guid: bcd6d55c62d03ff48bd3bcba1b186b77, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
