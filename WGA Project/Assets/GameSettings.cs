@@ -8,7 +8,8 @@ public static class GameSettings
     {
         raftControl,
         attack,
-        charging
+        charging,
+        tongueReturn
     }
 
     public static Vector3 mousePosition;
