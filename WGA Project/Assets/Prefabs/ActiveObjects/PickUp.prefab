@@ -125,4 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414b4dc53c6313c41b45e149e946602f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _amountOfPollen: 0
+  _amountOfPollen: 1
