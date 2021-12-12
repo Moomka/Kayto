@@ -1326,6 +1326,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonHealFrog: {fileID: 744592201}
   _healthGain: 30
+  _pollenText: {fileID: 1522691277}
 --- !u!4 &1013936188
 Transform:
   m_ObjectHideFlags: 0
