@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Ui;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject raft;
     [SerializeField] private Transform placeForUi;
     [SerializeField] float raftDamage;
+    [SerializeField] private List<Sprite> sprites;
+    [SerializeField] private Image image;
 
     private Quaternion _raftRotation;
     private Vector2 _userInput;
@@ -44,7 +47,7 @@ public class PlayerController : MonoBehaviour
         {
             GameOver();
         }
-
+        UpdateHp();
         _xAxis = Input.GetAxis("Horizontal");
         _yAxis = Input.GetAxis("Vertical");
         if (_yAxis < 0) _yAxis = -0.5f;
@@ -95,7 +98,43 @@ public class PlayerController : MonoBehaviour
                 }
         }
     }
-
+    public void UpdateHp()
+    {
+        float count;
+        count = GameSettings.playerHP / 100;
+        if (count * 8 < 1)
+        {
+            image.sprite = sprites[0];
+        }
+        else if (count * 8 < 2)
+        {
+            image.sprite = sprites[1];
+        }
+        else if (count * 8 < 3)
+        {
+            image.sprite = sprites[2];
+        }
+        else if (count * 8 < 4)
+        {
+            image.sprite = sprites[3];
+        }
+        else if (count * 8 < 5)
+        {
+            image.sprite = sprites[4];
+        }
+        else if (count * 8 < 6)
+        {
+            image.sprite = sprites[5];
+        }
+        else if (count * 8 < 7)
+        {
+            image.sprite = sprites[6];
+        }
+        else if (count * 8 < 8)
+        {
+            image.sprite = sprites[7];
+        }
+    }
     void GameOver()
     {
         if (_isGameOver)
