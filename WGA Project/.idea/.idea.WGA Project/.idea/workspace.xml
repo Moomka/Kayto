@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58f701a5-54d5-4f0e-ae4e-6fccc1638b17" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameSettings.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/ActiveObjects/Enemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/ActiveObjects/Enemy.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/Enemy.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameScripts/FlagWind.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameScripts/FlagWind.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +35,11 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/FlagRaft.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/RaftController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/FlagWind.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/PlayerController.cs" />
         <option value="$PROJECT_DIR$/Assets/GameSettings.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/Mosquito.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameScripts/FlagWind.cs" />
       </list>
     </option>
   </component>

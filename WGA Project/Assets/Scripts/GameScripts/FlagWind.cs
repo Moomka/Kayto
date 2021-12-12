@@ -10,15 +10,25 @@ public enum DirectionWind
     right,
     left,
     front,
-    back
+    back,
+    right_front,
+    left_front,
+    right_back,
+    left_back
 }
 
 public class FlagWind : MonoBehaviour
 {
     //[SerializeField] private GameObject raft;
+    [SerializeField] private int timeChangeWind;
     public float speed = 0.5f;
     private Vector3 _dirV;
     public DirectionWind dirWind = DirectionWind.none;
+
+    void Start()
+    {
+        Invoke("ChangeOfWind", 10);
+    }
     void Update()
     {
         switch (dirWind)
@@ -35,6 +45,18 @@ public class FlagWind : MonoBehaviour
             case DirectionWind.right:
                 _dirV = new Vector3(1,0, 0);
                 break;
+            case DirectionWind.right_front:
+                _dirV = new Vector3(1,0, 1);
+                break;
+            case DirectionWind.left_front:
+                _dirV = new Vector3(-1,0, 1);
+                break;
+            case DirectionWind.right_back:
+                _dirV = new Vector3(1,0, -1);
+                break;
+            case DirectionWind.left_back:
+                _dirV = new Vector3(-1,0, -1);
+                break;
             default:
                 _dirV = new Vector3(0, 0, 0);
                 return;
@@ -42,7 +64,18 @@ public class FlagWind : MonoBehaviour
         Rotation();
        
     }
-    
+
+    void ChangeOfWind()
+    {
+        int rn = UnityEngine.Random.Range(1, 7);
+        dirWind = (DirectionWind) rn;
+        Invoke("ChangeOfWind", timeChangeWind);
+    }
+
+    public Vector3 TakeDirectionWind()
+    {
+        return _dirV.normalized;
+    }
 
     public void Rotation()
     {
@@ -50,7 +83,5 @@ public class FlagWind : MonoBehaviour
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(_dirV), Time.deltaTime * speed);
         }
-        
-        //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x);
     }
 }
