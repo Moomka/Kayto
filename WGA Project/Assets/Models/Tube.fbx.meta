@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 121f99ab99eb8484ca29ad5fbfd9e379
+guid: 6df23e1ee3a281746b1bb7b51ac4f658
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,13 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: grasstera
-    second: {fileID: 2100000, guid: b7a6e01918a264d40a08bc02d52d388d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ground5
-    second: {fileID: 2100000, guid: 207f01f2020ce5b4fa0150c1570cf40b, type: 2}
+      name: lambert1
+    second: {fileID: 2100000, guid: cc31a981b90ea8c4b960c9d7c0e1edcf, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58f701a5-54d5-4f0e-ae4e-6fccc1638b17" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene0.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Terra/terracubebig.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Terra/terracubebig.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Terra/terraround1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Terra/terraround1.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/Three/Three 2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/Three/Three 2.mat" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,12 +22,12 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/Tongue.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../UnityEducation/Birds/Space SHMUP Prototype/Space SHMUP Prototype/Assets/Scripts/Hero.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../Unity DIPLOM/AR4.0/Assets/Scripts/BaseRobotMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Unity DIPLOM/AR4.0/Assets/Scripts/BaseRobotMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../UnityEducation/Birds/Space SHMUP Prototype/Space SHMUP Prototype/Assets/Scripts/Main.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/FlagWind.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../../../Unity DIPLOM/AR4.0/Assets/Scripts/FlyingBot.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../Unity DIPLOM/AR4.0/Assets/Scripts/FlyingBot.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/Mosquito.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameScripts/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -82,6 +83,7 @@
       <workItem from="1639166273684" duration="7518000" />
       <workItem from="1639178053698" duration="7988000" />
       <workItem from="1639319989923" duration="28000" />
+      <workItem from="1639322025129" duration="1298000" />
     </task>
     <servers />
   </component>
