@@ -14,7 +14,7 @@ public class Tongue : MonoBehaviour
     [SerializeField] float tongueMinimalDistance;
     LineRenderer tongueLine;
     float currentPower;
-    Vector3 frogPosition;
+
     Vector3 maxPowerPoint;
     Vector3 attackVector;
 
@@ -25,8 +25,8 @@ public class Tongue : MonoBehaviour
     }
     private void Update()
     {
-        frogPosition = frogMouth.position;
-        maxPowerPoint = frogPosition + (Vector3.Normalize(GameSettings.mousePosition - frogPosition) * maxPower);
+        GameSettings.frogPosition = frogMouth.position;
+        maxPowerPoint = GameSettings.frogPosition + (Vector3.Normalize(GameSettings.mousePosition - GameSettings.frogPosition) * maxPower);
         if (Input.GetMouseButtonDown(0) && GameSettings.playerState == GameSettings.playerStates.raftControl && !GameSettings.gameOnPause)
         {
             currentPower = 0;
@@ -41,7 +41,7 @@ public class Tongue : MonoBehaviour
         {
             case GameSettings.playerStates.attack:
                 tongueLine.material = tongueMaterial;
-                Attack(frogPosition + attackVector);
+                Attack(GameSettings.frogPosition + attackVector);
                 break;
             case GameSettings.playerStates.charging:
                 tongueLine.material = aimMaterial;
@@ -65,7 +65,7 @@ public class Tongue : MonoBehaviour
             case "Player":
                 {
                     GameSettings.playerState = GameSettings.playerStates.raftControl;
-                    gameObject.transform.position = frogPosition;
+                    gameObject.transform.position = GameSettings.frogPosition;
                     break;
                 }
             case "Enemy":
@@ -98,26 +98,26 @@ public class Tongue : MonoBehaviour
 
     void TongueReturn()
     {
-        if (Vector3.Distance(frogPosition, gameObject.transform.position) <= tongueMinimalDistance)
+        if (Vector3.Distance(GameSettings.frogPosition, gameObject.transform.position) <= tongueMinimalDistance)
         {
-            gameObject.transform.position = frogPosition;
+            gameObject.transform.position = GameSettings.frogPosition;
             GameSettings.playerState = GameSettings.playerStates.raftControl;
         }
-        gameObject.transform.LookAt(frogPosition);
+        gameObject.transform.LookAt(GameSettings.frogPosition);
         gameObject.transform.Translate(Vector3.forward * Time.deltaTime * tongueSpeed);
         DrawTongue();
     }
     void Charging()
     {
         currentPower = Mathf.Clamp(currentPower + (powerGrowSpeed * Time.deltaTime), 0, maxPower);
-        attackVector = GameSettings.mousePosition - frogPosition;
+        attackVector = GameSettings.mousePosition - GameSettings.frogPosition;
         DrawAim();
     }
 
     void Attack(Vector3 target)
     {
-        if (Vector3.Distance(gameObject.transform.position, frogPosition) >= currentPower ||
-            Vector3.Distance(gameObject.transform.position, frogPosition) >= attackVector.magnitude)
+        if (Vector3.Distance(gameObject.transform.position, GameSettings.frogPosition) >= currentPower ||
+            Vector3.Distance(gameObject.transform.position, GameSettings.frogPosition) >= attackVector.magnitude)
         {
             GameSettings.playerState = GameSettings.playerStates.tongueReturn;
         }
@@ -129,14 +129,14 @@ public class Tongue : MonoBehaviour
     void DrawTongue()
     {
         tongueLine.positionCount = 2;
-        tongueLine.SetPosition(0, frogPosition);
+        tongueLine.SetPosition(0, GameSettings.frogPosition);
         tongueLine.SetPosition(1, gameObject.transform.position);
     }
 
     void DrawAim()
     {
         tongueLine.positionCount = 2;
-        tongueLine.SetPosition(0, frogPosition);
-        tongueLine.SetPosition(1, Vector3.Lerp(frogPosition, maxPowerPoint, currentPower/maxPower));
+        tongueLine.SetPosition(0, GameSettings.frogPosition);
+        tongueLine.SetPosition(1, Vector3.Lerp(GameSettings.frogPosition, maxPowerPoint, currentPower/maxPower));
     }
 }

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private float damage = 10f;
     [SerializeField] private float radiusView = 5f;
     [SerializeField] private float distanseStartMove = 20f;
     [SerializeField] private float HP = 100;
@@ -13,6 +12,8 @@ public class Enemy : MonoBehaviour
     private GameObject Player;
     private Rigidbody rb;
     [SerializeField] private float speed = 5f;
+
+    [SerializeField] public float damage = 10f;
     void Awake()
     {
         _damageDone = false;
@@ -23,22 +24,22 @@ public class Enemy : MonoBehaviour
     public void GetDamage(float damage)
     {
         HP -= damage;
-        if (HP <= 0) Death();
+        if (HP <= 0) Death(0f);
     }
 
-    private void Death()
+    private void Death(float t)
     {
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, t);
     }
 
     void Update()
     {
-        Move();
+        Attack();
     }
 
-    private void Move()
+    private void Attack()
     {
-        Vector3 direction = Player.transform.position - transform.position;
+        Vector3 direction = GameSettings.frogPosition - transform.position;
         float dist = direction.magnitude;
         if (dist < distanseStartMove)
         {
@@ -56,29 +57,5 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        switch (other.gameObject.tag)
-        {
-            case "Player":
-                rb.isKinematic = true;
-                transform.SetParent(other.gameObject.transform);
-                if (_damageDone == false)
-                {
-                    PlayerController.S.GetDamage(damage);
-                    _damageDone = true;
-                }
-                break;
-        }
-       /* if (other.gameObject.CompareTag("Player"))
-        {
-            rb.isKinematic = true;
-            transform.SetParent(other.gameObject.transform);
-            if (_damageDone == false)
-            {
-                PlayerController.S.GetDamage(damage);
-                _damageDone = true;
-            }
-        }*/
-    }
+    
 }

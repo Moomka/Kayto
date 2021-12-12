@@ -25,12 +25,36 @@ public class Mosquito : MonoBehaviour
     {
         MovementLogic();
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Player":
+                transform.SetParent(other.gameObject.transform);
+                GameSettings.playerHP -= gameObject.GetComponent<Enemy>().damage;
+                gameObject.GetComponent<Enemy>().GetDamage(1000);
+                break;
+            default:
+                break;
+        }
+        /* if (other.gameObject.CompareTag("Player"))
+         {
+             rb.isKinematic = true;
+             transform.SetParent(other.gameObject.transform);
+             if (_damageDone == false)
+             {
+                 PlayerController.S.GetDamage(damage);
+                 _damageDone = true;
+             }
+         }*/
+    }
     public virtual void MovementLogic()
     {
         if (index != moveSpots.Length)
         {
-            transform.position =
-                Vector3.MoveTowards(transform.position, moveSpots[index].position, speed * Time.deltaTime);
+            Vector3 direction = Vector3.Normalize(moveSpots[index].position - gameObject.transform.position);
+            gameObject.transform.Translate(direction * Time.deltaTime * speed);
 
             if (Vector3.Distance(transform.position, moveSpots[index].position) < 0.01f)
             {

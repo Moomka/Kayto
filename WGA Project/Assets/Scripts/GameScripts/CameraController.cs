@@ -19,7 +19,14 @@ public class CameraController : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layersForTargeting))
             {
-                GameSettings.mousePosition = hit.point;
+                if (hit.collider.gameObject.tag == "Enemy")
+                {
+                    GameSettings.mousePosition = hit.collider.gameObject.transform.position;
+                }
+                else
+                {
+                    GameSettings.mousePosition = hit.point;
+                }
             }
         }
     }

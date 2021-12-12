@@ -12,6 +12,7 @@ public static class GameSettings
         tongueReturn
     }
 
+    public static Vector3 frogPosition;
     public static Vector3 mousePosition;
     public static playerStates playerState = playerStates.raftControl;
     public static bool gameOnPause = false;
