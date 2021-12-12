@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58f701a5-54d5-4f0e-ae4e-6fccc1638b17" name="Default Changelist" comment="" />
+    <list default="true" id="58f701a5-54d5-4f0e-ae4e-6fccc1638b17" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WGA Project/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene0.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene0.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameScene2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameScene2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,6 +81,7 @@
       <updated>1639166236296</updated>
       <workItem from="1639166273684" duration="7518000" />
       <workItem from="1639178053698" duration="7988000" />
+      <workItem from="1639319989923" duration="28000" />
     </task>
     <servers />
   </component>
