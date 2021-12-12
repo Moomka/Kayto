@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public static PlayerController S;
+    //public static PlayerController S;
     public Vector2 raftDirection;
 
     [SerializeField] Vector2 _riverDirection = new Vector2(0, 1.2f);
@@ -23,15 +23,15 @@ public class PlayerController : MonoBehaviour
     private GameSettings.playerStates _playerState;
     private float _xAxis;
     private float _yAxis;
-    GameObject objectView;
+    private GameObject objectView;
+    private bool _isGameOver=true;
 
-    void Awake()
+    void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
-        if (S == null)
-            S = this;
-        else 
-            Debug.LogError("Ошибка Hero.cs!");
+        //if (S == null)
+        //    S = this;
+        //else 
+        //    Debug.LogError("Ошибка Hero.cs!");
     }
 
     public void GetDamage(float damage)
@@ -98,9 +98,13 @@ public class PlayerController : MonoBehaviour
 
     void GameOver()
     {
-    GameOverView _view;
-    _view = LoadView(placeForUi);
-    _view.Init(QuitGame, RestartGame);
+        if (_isGameOver)
+        {
+            GameOverView _view;
+            _view = LoadView(placeForUi);
+            _view.Init(QuitGame, RestartGame);
+            _isGameOver = false;
+        }
     }
 
     private GameOverView LoadView(Transform placeForUi)
@@ -117,7 +121,6 @@ public class PlayerController : MonoBehaviour
 
     private void RestartGame()
     {
-        GameSettings.gameOnPause = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Destroy(objectView);
     }
