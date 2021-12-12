@@ -1,15 +1,14 @@
 fileFormatVersion: 2
-guid: dac60da17ba54834cb4426d138fd90b2
+guid: aa63cd46470964943a65207bfa6bc688
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
+  internalIDToNameTable: []
+  externalObjects:
   - first:
-      74: 1827226128182048838
-    second: Take 001
-  - first:
-      74: 1308122110575557156
-    second: Take 001 //// mixamorig:Hips
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pCube18
+    second: {fileID: 2100000, guid: e71d7ea8feb46864ab885f2e96d526a9, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -94,11 +93,11 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 1
+  animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
