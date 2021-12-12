@@ -78,6 +78,11 @@ public class Tongue : MonoBehaviour
                     other.gameObject.GetComponent<PickUp>().GetHit();
                     break;
                 }
+            case "Obstacle":
+                {
+                    GameSettings.playerState = GameSettings.playerStates.tongueReturn;
+                    break;
+                }
             default:
                 {
                     break;
