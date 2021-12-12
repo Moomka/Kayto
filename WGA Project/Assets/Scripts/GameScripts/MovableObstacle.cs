@@ -11,11 +11,17 @@ public class MovableObstacle : MonoBehaviour
     Transform currentTargetPoint;
     int currentPointIndex = 0;
 
+    private void Awake()
+    {
+        currentTargetPoint = points[0].transform;
+    }
     private void Update()
     {
         if (currentPointIndex >= points.Length) currentPointIndex = 0;
-        gameObject.transform.LookAt(currentTargetPoint);
-        gameObject.transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        currentTargetPoint = points[currentPointIndex].transform;
+        Vector3 direction = Vector3.Normalize(currentTargetPoint.position - gameObject.transform.position);
+        gameObject.transform.Translate(direction * Time.deltaTime * speed);
+
         if (Vector3.Distance(gameObject.transform.position, currentTargetPoint.position) < minimalDistance)
         {
             currentPointIndex++;
