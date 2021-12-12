@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tongue : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Tongue : MonoBehaviour
     [SerializeField] float tongueDamage;
     [SerializeField] float tongueSpeed;
     [SerializeField] float tongueMinimalDistance;
+    [SerializeField] private GameObject _pollenText;
+
     LineRenderer tongueLine;
     float currentPower;
 
@@ -76,6 +79,7 @@ public class Tongue : MonoBehaviour
             case "PickUp":
                 {
                     other.gameObject.GetComponent<PickUp>().GetHit();
+                    _pollenText.GetComponent<Text>().text = "Amount of pollen: " + GameSettings.pollen.ToString();
                     break;
                 }
             case "Obstacle":
