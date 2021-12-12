@@ -5,11 +5,13 @@ using UnityEngine;
 public class Obstacle : MonoBehaviour
 {
     [SerializeField] float obstacleHP;
-    [SerializeField] float obstacleDamage;
+    [SerializeField] float [] obstacleDamage = new float [2];
+    private bool beenHitted = false;
 
     public void Hit(float damage)
     {
-        GameSettings.playerHP -= obstacleDamage;
+        GameSettings.playerHP -= beenHitted ? obstacleDamage[1] : obstacleDamage[0];
+        
         obstacleHP -= damage;
         if (obstacleHP <= 0)
         {

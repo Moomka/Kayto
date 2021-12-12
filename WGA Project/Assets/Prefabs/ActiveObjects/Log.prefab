@@ -126,4 +126,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstacleHP: 10000
-  obstacleDamage: 25
+  obstacleDamage:
+  - 15
+  - 5

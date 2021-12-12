@@ -116,7 +116,6 @@ public class Tongue : MonoBehaviour
 
     void Attack(Vector3 target)
     {
-        Debug.Log(currentPower);
         if (Vector3.Distance(gameObject.transform.position, frogPosition) >= currentPower ||
             Vector3.Distance(gameObject.transform.position, frogPosition) >= attackVector.magnitude)
         {

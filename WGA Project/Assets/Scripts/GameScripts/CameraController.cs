@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
     {
         if (!GameSettings.gameOnPause)
         {
+            Debug.Log(GameSettings.playerHP);
             this.transform.position = Vector3.Lerp(this.transform.position, anchorTransform.position + cameraOffset, camFollowSpeed * Time.deltaTime);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;

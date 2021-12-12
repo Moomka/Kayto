@@ -37,14 +37,10 @@ public class PlayerController : MonoBehaviour
     public void GetDamage(float damage)
     {
         GameSettings.playerHP -= damage;
-        if (GameSettings.playerHP <= 0)
-        {
-            GameOver();
-        }
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && GameSettings.gameOnPause == false)
+        if (GameSettings.playerHP <= 0)
         {
             GameOver();
         }
@@ -113,7 +109,6 @@ public class PlayerController : MonoBehaviour
         GameObject prefab = (GameObject)Resources.Load(_resourcePath);
         objectView = Object.Instantiate(prefab, placeForUi, false);
         GameSettings.gameOnPause = true;
-        Debug.Log("���������");
         return objectView.GetComponent<GameOverView>();
     }
 
@@ -123,7 +118,6 @@ public class PlayerController : MonoBehaviour
     private void RestartGame()
     {
         GameSettings.gameOnPause = false;
-        Debug.Log("���������");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Destroy(objectView);
     }
